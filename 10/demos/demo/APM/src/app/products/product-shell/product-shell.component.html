@@ -1,0 +1,19 @@
+<div class='row'>
+  <div class='col-md-4'>
+    <!-- inputs at the top [errorMessage] -->
+    <!-- [] are child component values(product-list), parent values are to the right(product-shell) -->
+    <pm-product-list [errorMessage]="errorMessage$ | async"
+                     [displayCode]="displayCode$ | async"
+                     [products]="products$ | async"
+                     [selectedProduct]="selectedProduct$ | async"
+
+                     (displayCodeChanged)="checkChanged()"
+                     (initializeNewProduct)="newProduct()"
+                     (productWasSelected)="productSelected($any($event))">
+    </pm-product-list>
+    <!-- outputs at the bottom (displayCodeChanged) -->
+  </div>
+  <div class='col-md-8'>
+    <pm-product-edit></pm-product-edit>
+  </div>
+</div>
